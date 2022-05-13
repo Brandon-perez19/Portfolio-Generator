@@ -1,7 +1,7 @@
 // // fs = filesystem and is included in node. Use Require to access it for your projects
-// const fs = require('fs');
+const fs = require('fs');
 const inquirer = require('inquirer');
-// const generatePage = require('./src/page-template.js');
+const generatePage = require('./src/page-template.js');
 // const [name, github] = profileDataArgs;
 
 const promptUser = () => {
@@ -136,11 +136,15 @@ const promptProject = portfolioData => {
 
 promptUser()
 .then(promptProject)
-.then(portfolioData => console.log(portfolioData));
+.then(portfolioData =>  {
+    const pageHTML = generatePage(portfolioData);
 
-// fs.writeFile('./index.html', generatePage(name, github), err => {
-//     if (err) throw new Error(err);
+    fs.writeFile('./index.html', pageHTML, err => {
+        if (err) throw new Error(err);
 
-//     console.log('Portfolo complete! Check out index.html to see the output!');
+        console.log('Portfolo complete! Check out index.html in this directory to see it!');
+    });
 
-// });
+});
+
+
