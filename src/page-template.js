@@ -8,7 +8,7 @@ const generateAbout = aboutText => {
             <h2 class="text-dark bg-primary p-2 display-inline-block"> About Me</h2>
             <p>${aboutText}</p>
         </section>
-        `;
+    `;
 };
 
 const generateProjects = projectsArr => {
@@ -76,8 +76,8 @@ module.exports = templateData => {
         </header>
 
         <main class="container my-5">
-            ${generateAbout(about)};
-            ${generateProjects(projects)};
+            ${generateAbout(about)}
+            ${generateProjects(projects)}
         </main>
         <footer class="container text-center py-3">
             <h3 class="text-dark"> &copy; ${new Date().getFullYear()} by ${header.name}</h3>
